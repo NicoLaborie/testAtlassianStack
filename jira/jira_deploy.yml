@@ -58,7 +58,6 @@ spec:
               # https
             - name: CATALINA_CONNECTOR_SECURE
               value: "true"
-              # Value = "true
             - name: CLUSTERED
               value: "true"
             - name: JIRA_SHARED_HOME
@@ -159,9 +158,7 @@ spec:
     - "10.250.201.248"
     - "10.250.201.248"
     - "10.250.204.157"
-    - '10.250.218.215"
-
-
+    - "10.250.218.215"
   ports:
     - name: http
       port: 8080
