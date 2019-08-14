@@ -2,14 +2,16 @@ apiVersion: v1
 kind: Service
 metadata:
   name: bitbucket
-  namespace: production
+  namespace: test
   labels:
     app: confluence
 spec:
   type: LoadBalancer
   externalIPs:
-    - 10.1.1.24
-    - 10.1.1.25
+    - "10.250.201.248"
+    - "10.250.201.248"
+    - "10.250.204.157"
+    - "10.250.218.215"
   ports:
   - name: http
     port: 8090

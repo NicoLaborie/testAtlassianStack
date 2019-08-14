@@ -27,6 +27,10 @@ kubectl -n test apply -f jira/jira_deploy.yml
 kubectl -n test apply -f crowd/prod_crowd_service_fe.yml
 kubectl -n test apply -f crowd/prod_crowd_deployment.yml
 
-kubectl -n test apply -f confluence/confluence_deploy.yml
+kubectl -n test apply -f bitbucket/prod_bitbucket_service_fe.yml
+kubectl -n test apply -f bitbucket/prod_bitbucket_deployment.yml
 
-kubectl -n test apply -f bitbucket/bitbucket_deploy.yml
+kubectl -n test apply -f confluence/prod_confluence_service_fe.yml
+kubectl -n test apply -f confluence/prod_confluence_deployment.yml
+
+
