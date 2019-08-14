@@ -9,7 +9,7 @@ bitbucketvolumename: bitbucket
 storagesize: 5Gi
 nfsserverip: "10.1.1.22"
 nfspath: /root/nfs/bitbucket_prod
-bitbucketk8sservicename: bamboo-svc
+bitbucketk8sservicename: bitbucket-svc
 nodeip1: "10.1.1.30"
 nodeip2: "10.1.1.31"
 proxyname: "bitbucket.domain.xyz"

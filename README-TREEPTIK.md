@@ -24,6 +24,7 @@ kubectl -n test apply -f bamboo/bamboo_deploy.yml
 kubectl -n test apply -f jira/jira_deploy.yml
 
 
+kubectl -n test apply -f crowd/prod_crowd_service_fe.yml
 kubectl -n test apply -f crowd/prod_crowd_deployment.yml
 
 kubectl -n test apply -f confluence/confluence_deploy.yml
