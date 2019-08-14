@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitbucket-deployment
+  namespace: {{namespace}}
+  labels:
+    service: {{bitbucketservicename}}
+    app: {{appname}}
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{appname}}
+  template:
+    metadata:
+      labels:
+        app: {{appname}}
+    spec:
+      containers:
+        - name: bitbucket
+          image: atlassian/bitbucket-server:latest
+          imagePullPolicy: Always
+          env:
+            - name: JVM_MINIMUM_MEMORY
+              value: {{jvmlow}}
+            - name: JVM_MAXIMUM_MEMORY
+              value: {{jvmhigh}}
+            - name: SERVER_PROXY_PORT
+              value: "443"
+            - name: SERVER_PROXY_NAME
+              value: {{proxyname}}
+            - name: SERVER_SCHEME
+              value: {{proxyscheme}}
+            - name: SERVER_SECURE
+              value: "true"
+          ports:
+            - containerPort: 7990
+          volumeMounts:
+          - mountPath: "/var/atlassian/application-data/bitbucket"
+            name: {{bitbucketvolume}}
+      volumes:
+      - name: {{bitbucketvolume}}
+        persistentVolumeClaim:
+          claimName: {{bitbucketvolumeclaim}}

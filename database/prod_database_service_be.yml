@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{servicename}}
+  namespace: {{namespace}}
+  labels:
+    app: {{servicename}}
+spec:
+  selector:
+    app: {{servicename}}
+  ports:
+  - name: psql
+    port: 5432
+    targetPort: 5432
+    protocol: TCP

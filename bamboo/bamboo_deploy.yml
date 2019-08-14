@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bamboo
+  namespace: test
+  
+  labels:
+    service: bamboo
+    app: bamboo
+
+spec:
+  replicas: 1
+  serviceName: bamboo-svc
+  selector:
+    matchLabels:
+      app: bamboo
+  template:
+    metadata:
+      labels:
+        app: bamboo
+      
+    spec:
+      containers:
+        - name: bamboo
+          image: atlassian/bamboo-server:6.8.1
+          imagePullPolicy: Always
+          env:
+            - name: JVM_MINIMUM_MEMORY
+              value: "1536m"
+            - name: JVM_MAXIMUM_MEMORY
+              value: "1536m"
+            - name: PROXYNAME
+              value: "bamboo.domain.xyz"
+            - name: PROXYSCHEME
+              value: "https"
+            - name: PROXYSECURE
+              value: "true"
+          ports:
+            - containerPort: 8085
+          volumeMounts:
+          - mountPath: "/var/atlassian/application-data/bamboo"
+            name: bamboopv
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bamboo-svc
+  namespace: test
+  labels:
+    app: bamboo
+spec:
+  type:
+  externalIPs:
+  - "3.92.43.176"
+  - "18.209.221.242"
+  ports:
+  - name: http
+    port: 8085
+    targetPort: 8085
+    protocol: TCP
+  selector:
+    app: bamboo
