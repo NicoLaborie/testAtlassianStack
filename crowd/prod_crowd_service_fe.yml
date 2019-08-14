@@ -8,8 +8,10 @@ metadata:
 spec:
   type: LoadBalancer
   externalIPs:
-    - 10.1.1.24
-    - 10.1.1.25
+    - "10.250.201.248"
+    - "10.250.201.248"
+    - "10.250.204.157"
+    - "10.250.218.215"
   ports:
   - name: http
     port: 8095

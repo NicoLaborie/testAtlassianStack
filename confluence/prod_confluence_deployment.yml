@@ -33,5 +33,3 @@ spec:
             name: nfs
       volumes:
       - name: nfs
-        persistentVolumeClaim:
-          claimName: nfsprodconfluence

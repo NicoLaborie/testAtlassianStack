@@ -102,8 +102,6 @@ spec:
           emptyDir:
             {}
         - name: shared-home
-          persistentVolumeClaim:
-            claimName: jira
         - name: jira-db-config-volume
           configMap:
             name: jira-db-config-volume
