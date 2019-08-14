@@ -127,10 +127,10 @@ data:
       <database-type>postgres72</database-type>
       <schema-name>public</schema-name>
       <jdbc-datasource>
-        <url>jdbc:postgresql://postgres-atlas.test:5432/{{databasename}}</url>
+        <url>jdbc:postgresql://postgres-atlas.test:5432/jira</url>
         <driver-class>org.postgresql.Driver</driver-class>
-        <username>{{dbuser}}</username>
-        <password>{{dbpass}}</password>
+        <username>jira_prod</username>
+        <password>jira_prod</password>
         <pool-min-size>75</pool-min-size>
         <pool-max-size>100</pool-max-size>
         <pool-max-wait>30000</pool-max-wait>
