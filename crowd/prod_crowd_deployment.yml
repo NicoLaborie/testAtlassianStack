@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: crowd-deployment
-  namespace: production
+  namespace: test
   labels:
     service: crowd
     app: crowd
@@ -33,5 +33,4 @@ spec:
             name: nfs
       volumes:
       - name: nfs
-        persistentVolumeClaim:
-          claimName: nfsprodcrowd
+
