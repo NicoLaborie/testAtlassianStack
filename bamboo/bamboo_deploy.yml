@@ -21,31 +21,31 @@ spec:
       
     spec:
       containers:
-        - name: bamboo
-          image: atlassian/bamboo-server:6.8.1
-          imagePullPolicy: Always
-          env:
-            - name: JVM_MINIMUM_MEMORY
-              value: "1536m"
-            - name: JVM_MAXIMUM_MEMORY
-              value: "1536m"
-            - name: PROXYNAME
-              value: "bamboo.domain.xyz"
-            - name: PROXYSCHEME
-              value: "https"
-            - name: PROXYSECURE
-              value: "true"
-          ports:
-            - containerPort: 8085
-          volumeMounts:
-          - mountPath: "/var/atlassian/application-data/bamboo"
-            name: bamboopv
+      - name: bamboo
+        image: atlassian/bamboo-server:6.8.1
+        imagePullPolicy: Always
+        env:
+          - name: JVM_MINIMUM_MEMORY
+            value: "1536m"
+          - name: JVM_MAXIMUM_MEMORY
+            value: "1536m"
+          - name: PROXYNAME
+            value: "bamboo.domain.xyz"
+          - name: PROXYSCHEME
+            value: "https"
+          - name: PROXYSECURE
+            value: "true"
+        ports:
+          - containerPort: 8085
+        volumeMounts:
+        - mountPath: "/var/atlassian/application-data/bamboo"
+          name: bamboopv
         log-driver: json-file
         log-opts: 
           max-size: "10m"
           max-file: "3"
-        volumes:
-        - name: bamboopv
+      volumes:
+      - name: bamboopv
 ---
 apiVersion: v1
 kind: Service
