@@ -19,6 +19,7 @@ git add -A
 git commit -m "edit"
 git push
 
+
 kubectl -n test apply -f bamboo/bamboo_deploy.yml
 
 kubectl -n test apply -f jira/jira_deploy.yml
@@ -32,5 +33,13 @@ kubectl -n test apply -f bitbucket/prod_bitbucket_deployment.yml
 
 kubectl -n test apply -f confluence/prod_confluence_service_fe.yml
 kubectl -n test apply -f confluence/prod_confluence_deployment.yml
+
+
+GET ALL
+kubectl get all  -n test
+
+DELETE ALL
+kubectl delete all --all -n test
+
 
 
