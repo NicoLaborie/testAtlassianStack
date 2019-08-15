@@ -40,10 +40,6 @@ spec:
         volumeMounts:
         - mountPath: "/var/atlassian/application-data/bamboo"
           name: bamboopv
-          log-driver: json-file
-          log-opts: 
-            max-size: "10m"
-            max-file: "3"
       volumes:
       - name: bamboopv
 ---
