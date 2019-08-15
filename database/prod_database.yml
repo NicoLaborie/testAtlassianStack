@@ -1,32 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: {{namespace}}
-  name: {{servicename}}
+  namespace: test
+  name: postgres-atlas
   labels:
-    service: {{servicename}}
-    app: {{servicename}}
+    service: postgres-atlas
+    app: test
 
 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{servicename}}
+      app: postgres-atlas
   template:
     metadata:
       labels:
-        app: {{servicename}}
+        app: postgres-atlas
     spec:
       containers:
-        - name: {{servicename}}
+        - name: postgres-atlas
           image: mbern/postgres-atlas-all:latest
           ports:
             - containerPort: 5432
           volumeMounts:
             - mountPath: "/var/lib/postgresql/data/"
-              name: {{volume}}
+              name: postgresatlaspv
       volumes:
-        - name: {{volume}}
-          persistentVolumeClaim:
-            claimName: {{volumeclaim}}
+        - name: postgresatlaspv

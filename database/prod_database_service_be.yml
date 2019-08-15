@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{servicename}}
-  namespace: {{namespace}}
+  name: postgres-atlas
+  namespace: test
   labels:
-    app: {{servicename}}
+    app: postgres-atlas
 spec:
   selector:
-    app: {{servicename}}
+    app: postgres-atlas
   ports:
   - name: psql
     port: 5432

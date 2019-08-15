@@ -34,6 +34,8 @@ kubectl -n test apply -f bitbucket/prod_bitbucket_deployment.yml
 kubectl -n test apply -f confluence/prod_confluence_service_fe.yml
 kubectl -n test apply -f confluence/prod_confluence_deployment.yml
 
+kubectl -n test apply -f database/prod_database_service_be.yml
+kubectl -n test apply -f database/prod_database.yml
 
 GET ALL
 kubectl get all  -n test
@@ -42,4 +44,10 @@ DELETE ALL
 kubectl delete all --all -n test
 
 
+kubectl delete -f elastic-search-rc.yaml
 
+kubectl delete -f elasticsearch-svc.yaml
+
+kubectl delete -f kibana-rc.yaml
+
+kubectl delete -f kibana-svc.yaml
