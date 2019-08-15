@@ -7,11 +7,6 @@ metadata:
   labels:
     service: bamboo
     app: bamboo
-  
-  log-driver: json-file
-  log-opts: 
-    max-size: "10m"
-    max-file: "3"
 spec:
   replicas: 1
   serviceName: bamboo-svc
