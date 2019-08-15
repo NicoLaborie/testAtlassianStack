@@ -7,7 +7,11 @@ metadata:
   labels:
     service: bamboo
     app: bamboo
-
+  env:
+    log-driver: json-file
+    log-opts: 
+      max-size: "10m"
+      max-file: "3"
 spec:
   replicas: 1
   serviceName: bamboo-svc
@@ -40,6 +44,7 @@ spec:
         volumeMounts:
         - mountPath: "/var/atlassian/application-data/bamboo"
           name: bamboopv
+
       volumes:
       - name: bamboopv
 ---
